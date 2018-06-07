@@ -63,6 +63,12 @@ string toascii(string s){
   return  ret;
 }
 
+string Uartprot(float f){ // Main fuction that transform 0.87 in ascii ewuivalent
+  string bin  = tobin(f);
+  bin = bin.substr(1,12);
+  string asc = toascii(bin);
+  return asc;
+}
 
 int main(int argc, char* argv[]){
   printf("BEGIN TEST \n");
@@ -77,8 +83,8 @@ int main(int argc, char* argv[]){
     bin = bin.substr(1,12);
     printf("%f",f[i]-1 );
     cout <<   "  devient  "   + bin;
-    asc = toascii(bin);
-    cout << " qui devient " + asc + "\n";
+    asc = Uartprot(f[i]);
+    cout << "  qui devient  " + asc + "\n";
     if(f[i] == 0.5 && asc == "800"){
       printf("//////////////////////TEST OK//////////////////////\n");
     }
